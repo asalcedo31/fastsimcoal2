@@ -1,0 +1,26 @@
+// Search ranges and rules file
+// ****************************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max 
+//all Ns are in number of haploid individuals
+1  NAS       logunif  10   1e7   output
+1  NEU       logunif  10   1e7   output
+1  NASANC    logunif  10   1e7   output
+1  NEUANC    logunif  10   1e7   output
+1  NANC        logunif  10   1e7   output
+1  TDIV        logunif  10   5e5   output 
+0  migr12      logunif  1e-10 1e-1   output 
+0  migr21      logunif  1e-10 1e-1   output 
+
+[RULES]
+
+[COMPLEX PARAMETERS]
+
+0  RESIZE0   = NANC/NEU   output
+0  RATIOAS     = NASANC/NAS    hide
+0  RTEAAS      = log(RATIOAS)    hide
+0  RAS       = RTEA/TDIV     hide
+0  RATIOEU       = NANC/NEU   hide
+0  RTEAEU     = log(RATIOEU)   hide
+0  REU      = RTEAEU/TDIV     hide  
